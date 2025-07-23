@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Migración a la Nube AWS | Reduce Costos hasta 60% | Amber Perú</title>
+    <meta name="description" content="Migra tu infraestructura a AWS con Amber. Elimina costos de hardware, mejora la seguridad y escala bajo demanda. Evaluación gratuita y facturación local en Perú.">
+    <meta name="keywords" content="migración a la nube, migración AWS, infraestructura en la nube, servidores en la nube precios, migración de servidores a la nube">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://amber.pe/migracion-nube">
+    <meta property="og:title" content="Migración a la Nube AWS | Reduce Costos hasta 60% | Amber">
+    <meta property="og:description" content="Migra tu infraestructura a AWS con Amber. Elimina costos de hardware, mejora la seguridad y escala bajo demanda.">
+    <meta property="og:image" content="https://amber.pe/images/og-migracion-nube.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://amber.pe/migracion-nube">
+    <meta property="twitter:title" content="Migración a la Nube AWS | Reduce Costos hasta 60% | Amber">
+    <meta property="twitter:description" content="Migra tu infraestructura a AWS con Amber. Elimina costos de hardware, mejora la seguridad y escala bajo demanda.">
+
+    <!-- Schema.org for Google -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Migración a la Nube AWS",
+        "description": "Servicios de migración de infraestructura a Amazon Web Services",
+        "provider": {
+            "@type": "Organization",
+            "name": "Amber",
+            "url": "https://amber.pe",
+            "logo": "https://amber.pe/logo.png"
+        },
+        "serviceType": "Migración a la Nube",
+        "areaServed": {
+            "@type": "Country",
+            "name": "Perú"
+        }
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #6B73FF 0%, #8B5FBF 50%, #5A4FCF 100%);
+            padding: 60px 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+
+        .hero-text h1 .highlight {
+            color: #FF6B35;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 32px;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+
+        .benefits-preview {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 12px 20px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .benefit-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            fill: #FF6B35;
+        }
+
+        /* Formulario */
+        .form-container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .form-title {
+            color: #333333;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .form-subtitle {
+            color: #666666;
+            font-size: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333333;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #e1e5e9;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #6B73FF;
+            box-shadow: 0 0 0 3px rgba(107, 115, 255, 0.1);
+        }
+
+        .cta-button {
+            width: 100%;
+            background: #FF6B35;
+            color: #000000;
+            padding: 18px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-button:hover {
+            background: #e55a2b;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+        }
+
+        .trust-indicators {
+            margin-top: 24px;
+            text-align: center;
+        }
+
+        .aws-badge {
+            display: inline-block;
+            background: #FF9900;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .security-note {
+            font-size: 0.9rem;
+            color: #666;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        /* Secciones principales */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 24px;
+            color: #333333;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            text-align: center;
+            color: #666666;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Sección de beneficios */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(107, 115, 255, 0.15);
+        }
+
+        .benefit-card .icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 24px;
+            background: linear-gradient(135deg, #6B73FF, #8B5FBF);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .benefit-card .icon svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #333333;
+        }
+
+        .benefit-card p {
+            color: #666666;
+            line-height: 1.6;
+        }
+
+        /* Sección de proceso */
+        .process-section {
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 100%);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .process-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #6B73FF, #8B5FBF);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 auto 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .process-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: calc(100% - 40px);
+            width: calc(100% - 80px);
+            height: 2px;
+            background: linear-gradient(90deg, #6B73FF, #8B5FBF);
+            z-index: 1;
+        }
+
+        .process-step h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #333333;
+        }
+
+        .process-step p {
+            color: #666666;
+            line-height: 1.6;
+        }
+
+        /* Casos de éxito */
+        .case-studies {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .case-study {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #FF6B35;
+        }
+
+        .case-company {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #333333;
+            margin-bottom: 16px;
+        }
+
+        .case-description {
+            color: #666666;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .case-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .metric {
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #6B73FF;
+            display: block;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: #666666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* CTA Final */
+        .final-cta {
+            background: linear-gradient(135deg, #6B73FF 0%, #8B5FBF 50%, #5A4FCF 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .final-cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .final-cta h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .final-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .urgency-badge {
+            background: #FF6B35;
+            color: #000000;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 32px;
+            font-size: 1rem;
+        }
+
+        .final-cta-button {
+            background: #FF6B35;
+            color: #000000;
+            padding: 20px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .final-cta-button:hover {
+            background: #e55a2b;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 107, 53, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: #333333;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .footer-text {
+            opacity: 0.8;
+            margin-bottom: 24px;
+        }
+
+        .footer-badges {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-badge {
+            background: #FF6B35;
+            color: #000000;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-step:not(:last-child)::after {
+                display: none;
+            }
+
+            .case-studies {
+                grid-template-columns: 1fr;
+            }
+
+            .case-metrics {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .form-container {
+                padding: 30px 20px;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Hero Section -->
+    <section class="header">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>¿Tus <span class="highlight">Servidores</span> Te Cuestan Más que Tus Ventas?</h1>
+                    <p class="hero-subtitle">Migra a AWS y reduce costos de infraestructura hasta 60%. Escala bajo demanda, mejora la seguridad y elimina el mantenimiento de hardware.</p>
+                    
+                    <div class="benefits-preview">
+                        <div class="benefit-item">
+                            <svg class="benefit-icon" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                            <span>Reducción de costos 60%</span>
+                        </div>
+                        <div class="benefit-item">
+                            <svg class="benefit-icon" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                            <span>Escalabilidad automática</span>
+                        </div>
+                        <div class="benefit-item">
+                            <svg class="benefit-icon" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                            <span>Facturación local Perú</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-container">
+                    <div class="form-header">
+                        <h2 class="form-title">Calcula tu Ahorro en Migración</h2>
+                        <p class="form-subtitle">Evaluación gratuita de infraestructura actual</p>
+                    </div>
+
+                    <form id="migrationForm" action="#" method="POST">
+                        <input type="hidden" name="campaign_source" value="google_ads_migracion_nube">
+                        <input type="hidden" name="landing_page" value="migracion_nube">
+                        
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo *</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="empresa">Empresa *</label>
+                            <input type="text" id="empresa" name="empresa" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email corporativo *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cargo">Cargo *</label>
+                            <select id="cargo" name="cargo" required>
+                                <option value="">Selecciona tu cargo</option>
+                                <option value="CEO/Gerente General">CEO/Gerente General</option>
+                                <option value="CTO/Director de Tecnología">CTO/Director de Tecnología</option>
+                                <option value="CFO/Director Financiero">CFO/Director Financiero</option>
+                                <option value="Gerente de TI">Gerente de TI</option>
+                                <option value="Jefe de Infraestructura">Jefe de Infraestructura</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefono">Teléfono *</label>
+                            <input type="tel" id="telefono" name="telefono" required>
+                        </div>
+
+                        <button type="submit" class="cta-button">
+                            OBTENER EVALUACIÓN GRATUITA
+                        </button>
+
+                        <div class="trust-indicators">
+                            <div class="aws-badge">✓ AWS Advanced Partner</div>
+                            <div class="security-note">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/>
+                                </svg>
+                                Datos 100% seguros y confidenciales
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beneficios Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">¿Por Qué Migrar tu Infraestructura a AWS?</h2>
+            <p class="section-subtitle">Elimina los dolores de cabeza de mantener servidores físicos y transforma tu infraestructura en una ventaja competitiva.</p>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/>
+                        </svg>
+                    </div>
+                    <h3>Reducción de Costos CAPEX</h3>
+                    <p>Elimina la inversión en hardware, licencias y mantenimiento. Reduce costos operativos hasta 60% y convierte gastos fijos en variables.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <h3>Escalabilidad Automática</h3>
+                    <p>Escala recursos automáticamente según demanda. No más servidores saturados en Black Friday o recursos desperdiciados en temporadas bajas.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/>
+                        </svg>
+                    </div>
+                    <h3>Seguridad Empresarial</h3>
+                    <p>Backup automático, disaster recovery y encriptación de datos. Cumple con estándares internacionales ISO 27001 y SOC 2.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
+                        </svg>
+                    </div>
+                    <h3>Disponibilidad 99.99%</h3>
+                    <p>Elimina downtime costoso. Infraestructura distribuida en múltiples zonas de disponibilidad garantiza continuidad del negocio.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12,3L1,9L12,15L21,10.09V17H23V9L12,3M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z"/>
+                        </svg>
+                    </div>
+                    <h3>Facturación Local</h3>
+                    <p>Facturación en soles con RUC peruano. Beneficios fiscales y facilidades de pago. Sin complicaciones cambiarias.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6M12,8A4,4 0 0,0 8,12A4,4 0 0,0 12,16A4,4 0 0,0 16,12A4,4 0 0,0 12,8Z"/>
+                        </svg>
+                    </div>
+                    <h3>Gestión Simplificada</h3>
+                    <p>Elimina la complejidad de administrar servidores físicos. Panel centralizado para monitoreo, alertas y gestión de recursos desde cualquier lugar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proceso Section -->
+    <section class="section process-section">
+        <div class="container">
+            <h2 class="section-title">Metodología de Migración Amber</h2>
+            <p class="section-subtitle">Proceso probado que garantiza migración exitosa sin interrupciones de servicio</p>
+
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="process-number">1</div>
+                    <h3>Evaluación y Auditoría</h3>
+                    <p>Análisis completo de tu infraestructura actual, identificación de aplicaciones críticas y cálculo de costos de migración.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">2</div>
+                    <h3>Diseño de Arquitectura</h3>
+                    <p>Creación del blueprint AWS optimizado para tu negocio, considerando seguridad, escalabilidad y costos.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">3</div>
+                    <h3>Migración Gradual</h3>
+                    <p>Migración por fases con testing continuo, rollback plan y monitoreo 24/7 para garantizar cero downtime.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">4</div>
+                    <h3>Optimización y Soporte</h3>
+                    <p>Ajuste fino de performance, configuración de auto-scaling y capacitación del equipo técnico.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Casos de Éxito Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Casos de Éxito en Migración AWS</h2>
+            <p class="section-subtitle">Empresas que ya transformaron su infraestructura con Amber</p>
+
+            <div class="case-studies">
+                <div class="case-study">
+                    <div class="case-company">AMAG Seguros</div>
+                    <p class="case-description">Migración completa de infraestructura on-premise a AWS, modernizando sistemas legacy y mejorando disponibilidad de servicios críticos para clientes.</p>
+                    <div class="case-metrics">
+                        <div class="metric">
+                            <span class="metric-value">65%</span>
+                            <span class="metric-label">Reducción Costos</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">99.9%</span>
+                            <span class="metric-label">Disponibilidad</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">3 meses</span>
+                            <span class="metric-label">Tiempo Migración</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-study">
+                    <div class="case-company">GlucAssist</div>
+                    <p class="case-description">Startup healthtech que migró su plataforma de salud digital, escalando automáticamente según demanda de usuarios y cumpliendo regulaciones de datos médicos.</p>
+                    <div class="case-metrics">
+                        <div class="metric">
+                            <span class="metric-value">10x</span>
+                            <span class="metric-label">Escalabilidad</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">40%</span>
+                            <span class="metric-label">Reducción OPEX</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">ISO 27001</span>
+                            <span class="metric-label">Certificación</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="section final-cta">
+        <div class="container">
+            <div class="final-cta-content">
+                <div class="urgency-badge">⏰ Evaluación Gratuita por Tiempo Limitado</div>
+                <h2>¿Listo para Eliminar los Dolores de Cabeza de tu Infraestructura?</h2>
+                <p>Únete a más de 50 empresas peruanas que ya migraron exitosamente a AWS y están ahorrando hasta 60% en costos de infraestructura.</p>
+                <button class="final-cta-button" onclick="document.getElementById('migrationForm').scrollIntoView()">
+                    INICIAR MI MIGRACIÓN AHORA
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">AMBER</div>
+            <p class="footer-text">Partner Avanzado AWS especializado en migración, modernización e IA generativa</p>
+            <div class="footer-badges">
+                <div class="footer-badge">AWS Advanced Partner</div>
+                <div class="footer-badge">ISO 27001</div>
+                <div class="footer-badge">SOC 2 Compliance</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handler
+        document.getElementById('migrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Basic validation
+            if (!data.nombre || !data.empresa || !data.email || !data.cargo || !data.telefono) {
+                alert('Por favor, completa todos los campos obligatorios.');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(data.email)) {
+                alert('Por favor, ingresa un email válido.');
+                return;
+            }
+            
+            // Simulate form submission
+            const button = this.querySelector('.cta-button');
+            button.textContent = 'ENVIANDO...';
+            button.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                alert('¡Gracias por tu interés! Te contactaremos en las próximas 24 horas para programar tu evaluación gratuita.');
+                button.textContent = 'EVALUACIÓN ENVIADA ✓';
+                button.style.background = '#28a745';
+                
+                // Log to console for debugging
+                console.log('Form submitted:', data);
+                
+                // Here you would normally send data to your CRM/backend
+                // fetch('/api/leads', { method: 'POST', body: formData })
+                
+            }, 2000);
+        });
+
+        // Smooth scroll for CTA buttons
+        document.querySelectorAll('button[onclick]').forEach(button => {
+            button.addEventListener('click', function() {
+                document.getElementById('migrationForm').scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            });
+        });
+
+        // Add analytics tracking (Google Analytics 4)
+        function trackFormView() {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'form_view', {
+                    'form_name': 'migracion_nube_lead_form',
+                    'page_title': document.title
+                });
+            }
+        }
+
+        function trackFormSubmission() {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'form_submit', {
+                    'form_name': 'migracion_nube_lead_form',
+                    'campaign_source': 'google_ads_migracion_nube'
+                });
+            }
+        }
+
+        // Track form view on page load
+        window.addEventListener('load', trackFormView);
+
+        // Track form submission
+        document.getElementById('migrationForm').addEventListener('submit', trackFormSubmission);
+    </script>
+</body>
+</html>
